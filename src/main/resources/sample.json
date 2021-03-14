@@ -1,0 +1,29 @@
+{
+  "0": {
+    "id": "-1",
+    "code": "000",
+    "quiz": {
+      "text": "(サンプル問題) 札幌はどこにある都道府県でしょう?",
+      "images": [],
+      "choices": [
+        {
+          "text": "北海道",
+          "imagePath":""
+        },
+        {
+          "text": "東京都",
+          "imagePath": ""
+        },
+        {
+          "text": "大阪府",
+          "imagePath": ""
+        }
+      ],
+      "commentary": {
+        "answer": "北海道",
+        "text": "札幌は間違いなく北海道です。",
+        "images": []
+      }
+    }
+  }
+}
