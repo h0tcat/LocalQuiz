@@ -59,7 +59,7 @@ public class Quiz{
 		return answerPath;
 	}
 
-	private String answerCommentarhPath;
+	private String answerCommentarPath;
 	public String getCommentary(){
 
 		if(debugMode)
@@ -67,16 +67,16 @@ public class Quiz{
 		else
 			this.jsonPath=String.format("/%d/quiz/commentary/text",randQuizID);
 
-		this.answerCommentarhPath=this.root.at(jsonPath).asText();
-		return this.answerCommentarhPath;
+		this.answerCommentarPath=this.root.at(jsonPath).asText();
+		return this.answerCommentarPath;
 	}
 
 	private String choicePath;
 	public String getChoice(int index){
 		if(debugMode)
-			this.jsonPath=String.format("/%d/quiz/choices",this.quizID,index);
+			this.jsonPath=String.format("/%d/quiz/choices",this.quizID);
 		else
-			this.jsonPath=String.format("/%d/quiz/choices",randQuizID,index);
+			this.jsonPath=String.format("/%d/quiz/choices",randQuizID);
 
 		this.choicePath=this.root.at(jsonPath).get(index).get("text").asText();
 		return choicePath;
