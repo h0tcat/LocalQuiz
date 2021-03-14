@@ -6,7 +6,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ResultController">
    <children>
       <FlowPane prefHeight="83.0" prefWidth="803.0">
@@ -22,7 +21,7 @@
          <children>
             <Text fx:id="commentaryText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                <font>
-                  <Font name="System Bold Italic" size="62.0" />
+                  <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
          </children>
