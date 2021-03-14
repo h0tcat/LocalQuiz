@@ -6,7 +6,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -65,7 +64,7 @@ public class QuizController {
 
         if(isChecked){
            Quiz.judgeResult=this.Judge();
-           if(Quiz.judgeResult==true) { //judgeResultがtrueと等しいとき、正解したことを意味する。
+           if(Quiz.judgeResult) { //judgeResultがtrueと等しいとき、正解したことを意味する。
                this.sound[1].play();
                Main.page.setScene(new Scene(FXMLLoader.load((getClass().getResource("/Result.fxml")))));
            }else{
@@ -85,10 +84,7 @@ public class QuizController {
         }
 
 
-        if(this.judgeBox[truedIndex].getText().equals(Main.quiz.getAnswer()))
-            return true;
-        else
-            return false;
+        return this.judgeBox[truedIndex].getText().equals(Main.quiz.getAnswer());
     }
 
     @FXML
@@ -109,7 +105,7 @@ public class QuizController {
 
         Main.quiz=new Quiz();
 
-        ArrayList<String> quizChoices=new ArrayList<String>();
+        ArrayList<String> quizChoices= new ArrayList<>();
         this.quizText.setText(Main.quiz.getText());
 
         this.judgeBox=new CheckBox[3];
@@ -128,7 +124,7 @@ public class QuizController {
                 this.judgeBox[1] = this.secondChoices;
                 this.secondChoices.setText(quizChoices.get(i));
             }
-            else if(i % 3==2) {
+            else {
                 this.judgeBox[2]=this.thirdChoices;
                 this.thirdChoices.setText(quizChoices.get(i));
             }

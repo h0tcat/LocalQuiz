@@ -11,13 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 public class ResultController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
     @FXML
     private Text answerResult;
 
@@ -28,7 +21,7 @@ public class ResultController {
     private Button backTitleButton;
 
     @FXML
-    void clickBackTitleButton(ActionEvent event) throws IOException {
+    void clickBackTitleButton() throws IOException {
 
         Main.page.setScene(new Scene(FXMLLoader.load((getClass().getResource("/Form.fxml")))));
     }
@@ -39,7 +32,7 @@ public class ResultController {
         assert commentaryText != null : "fx:id=\"commentaryText\" was not injected: check your FXML file 'Result.fxml'.";
         assert backTitleButton != null : "fx:id=\"backTitleButton\" was not injected: check your FXML file 'Result.fxml'.";
 
-        if(Quiz.judgeResult==true) {//judgeResultがtrueと等しいとき、正解したことを意味する。
+        if(Quiz.judgeResult) {//judgeResultがtrueと等しいとき、正解したことを意味する。
             this.answerResult.setText("正解!");
             this.commentaryText.setText(Main.quiz.getCommentary());
         }else{
