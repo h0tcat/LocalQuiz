@@ -8,10 +8,11 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    static Stage page;
+    protected static Stage page;
+    protected static Quiz quiz;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Form.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Form.fxml"));
         primaryStage.setTitle("LocalQuiz");
         primaryStage.setScene(new Scene(root, 640, 480));
         Main.page=primaryStage;
