@@ -25,5 +25,33 @@
         "images": []
       }
     }
+  },
+  "1":{
+    "id:": "-1",
+    "code:": "000",
+    "quiz": {
+      "text": "北海道の総人口は、約何人でしょう?(2020年12月31日時点)",
+      "images": [],
+      "choices": [
+        {
+          "text": "約630万8千人",
+          "imagePath":""
+        },
+        {
+          "text": "約522万9千人",
+          "imagePath": ""
+        },
+        {
+          "text": "約320万5千人",
+          "imagePath": ""
+        }
+      ],
+      "commentary": {
+        "answer": "約522万9千人",
+        "text": "北海道はやはり広いですね〜。(人口:wikipedia)",
+        "images": []
+      }
+    }
+    }
   }
 }
