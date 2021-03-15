@@ -41,10 +41,6 @@ public class Quiz{
 		}
 		this.quizID=this.rand.nextInt(this.root.size());
 		this.randQuizID=this.rand.nextInt(this.root.size());
-
-		if(debugMode)
-			this.quizID=0;
-
 	}
 
 	private String answerPath;
