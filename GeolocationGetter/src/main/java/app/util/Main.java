@@ -1,4 +1,4 @@
-package nori.app.sample;
+package app.util;
 
 import javax.crypto.*;
 import java.io.FileOutputStream;
@@ -18,30 +18,16 @@ public class Main {
             String stateJson=api.getStateJson(client);
             //暗号化して位置情報取得プログラムをシリアライズする。
 
-            Cipher cipher=Cipher.getInstance("AES");
-            KeyGenerator keyGen=KeyGenerator.getInstance("AES");
-            keyGen.init(128);
-            SecretKey key=keyGen.generateKey();
-            cipher.init(Cipher.ENCRYPT_MODE,key);
-
             FileOutputStream fileOutputStream=new FileOutputStream("./GeolocationGetter.bin");
-            CipherOutputStream cipherOutputStream=new CipherOutputStream(fileOutputStream,cipher);
 
             ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(api);
 
             objectOutputStream.close();
-            cipherOutputStream.close();
             fileOutputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (NoSuchPaddingException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeyException e) {
             e.printStackTrace();
         }
     }
