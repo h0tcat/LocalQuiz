@@ -27,7 +27,7 @@ public class Main {
             FileOutputStream fileOutputStream=new FileOutputStream("./GeolocationGetter.bin");
             CipherOutputStream cipherOutputStream=new CipherOutputStream(fileOutputStream,cipher);
 
-            ObjectOutputStream objectOutputStream=new ObjectOutputStream(cipherOutputStream);
+            ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(api);
 
             objectOutputStream.close();
