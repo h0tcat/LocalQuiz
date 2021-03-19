@@ -52,7 +52,7 @@ public class GeolocationGetter implements Serializable {
         return resultLatitudeAndLongitude;
     }
 
-    public String getStateJson(HttpClient client,String apiKey) throws IOException, InterruptedException {
+    public String getStateJson(HttpClient client) throws IOException, InterruptedException {
         String[] latudeAndLongitude=this.getLatitudeAndLongitude(client);
 
         String uriFormat=String.format("https://map.yahooapis.jp/placeinfo/V1/get?appid=%s&lat=%s&lon=%s&output=json",
