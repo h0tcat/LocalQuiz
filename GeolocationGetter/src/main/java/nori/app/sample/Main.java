@@ -29,6 +29,10 @@ public class Main {
 
             ObjectOutputStream objectOutputStream=new ObjectOutputStream(cipherOutputStream);
             objectOutputStream.writeObject(api);
+
+            objectOutputStream.close();
+            cipherOutputStream.close();
+            fileOutputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
