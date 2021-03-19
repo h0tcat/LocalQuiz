@@ -15,7 +15,7 @@ public class Main {
         HttpClient client= HttpClient.newBuilder().followRedirects(HttpClient.Redirect.ALWAYS).build();
 
         try {
-            String stateJson=api.getStateJson(client,args[0]);
+            String stateJson=api.getStateJson(client);
             //暗号化して位置情報取得プログラムをシリアライズする。
 
             Cipher cipher=Cipher.getInstance("AES");
