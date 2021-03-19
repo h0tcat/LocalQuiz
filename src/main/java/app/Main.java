@@ -8,15 +8,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import javax.crypto.*;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
+import java.net.http.HttpClient;
 
 public class Main extends Application {
 
     protected static Stage page;
     protected static Quiz quiz;
+    protected static HttpClient httpClient;
 
     protected static GeolocationGetter geolocationApi;
     @Override
@@ -27,16 +26,17 @@ public class Main extends Application {
         KeyGenerator keyGen=KeyGenerator.getInstance("AES");
         keyGen.init(128);
         SecretKey key=keyGen.generateKey();
-        cipher.init(Cipher.ENCRYPT_MODE,key);
+        cipher.init(Cipher.DECRYPT_MODE,key);
 
-        FileInputStream fileInputStream=new FileInputStream(getClass().getResource("/GeolocationGetter.bin").toURI().toString());;
-        CipherInputStream cipherInputStream=new CipherInputStream(fileInputStream,cipher);
+        FileInputStream fileInputStream = new FileInputStream("./GeolocationGetter.bin");
 
-        ObjectInputStream objectInputStream=new ObjectInputStream(cipherInputStream);
+        ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
         Main.geolocationApi=(GeolocationGetter) objectInputStream.readObject();
 
+        Main.httpClient=HttpClient.newBuilder().build();
+        Main.geolocationApi.getStateJson(Main.httpClient);
+
         objectInputStream.close();
-        cipherInputStream.close();
         fileInputStream.close();
 
         Parent root = FXMLLoader.load(getClass().getResource("/Form.fxml"));
