@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.crypto.*;
 import java.io.*;
 import java.net.http.HttpClient;
 
@@ -19,7 +18,7 @@ public class Main extends Application {
 
     protected static GeolocationGetter geolocationApi;
     protected static Scene scene;
-
+    protected static Parent root;
     @Override
     public void start(Stage primaryStage) throws Exception{
 
@@ -40,7 +39,7 @@ public class Main extends Application {
         objectInputStream.close();
         fileInputStream.close();
 
-        Parent root = FXMLLoader.load(getClass().getResource("/Form.fxml"));
+        Main.root=FXMLLoader.load(getClass().getResource("/fxml/Form.fxml"));
         Main.scene=new Scene(root, 640, 480);
         primaryStage.setTitle("LocalQuiz");
         primaryStage.setScene(Main.scene);

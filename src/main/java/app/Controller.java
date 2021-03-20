@@ -24,7 +24,7 @@ public class Controller {
     @FXML
     void ClickedStartGameButton(ActionEvent event) throws IOException{
 
-			Main.page.setScene(new Scene(FXMLLoader.load((getClass().getResource("/Quiz.fxml")))));
+			Main.page.setScene(new Scene(FXMLLoader.load((getClass().getResource("/fxml/Quiz.fxml")))));
     }
 
     @FXML

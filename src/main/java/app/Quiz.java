@@ -31,12 +31,12 @@ public class Quiz{
 		this.rand=new Random();
 
 		if(debugMode) {
-			this.file = new File(getClass().getResource("/sample.json").toURI());
+			this.file = new File(getClass().getResource("/json/sample.json").toURI());
 			this.root=mapper.readTree(this.file);
 		}
 		else {
 
-			this.file = new File(getClass().getResource("/population.json").toURI());
+			this.file = new File(getClass().getResource("/json/population.json").toURI());
 			this.root = mapper.readTree(this.file);
 		}
 		this.quizID=this.rand.nextInt(this.root.size());

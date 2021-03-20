@@ -66,10 +66,10 @@ public class QuizController {
            Quiz.judgeResult=this.Judge();
            if(Quiz.judgeResult) { //judgeResultがtrueと等しいとき、正解したことを意味する。
                this.sound[1].play();
-               Main.page.setScene(new Scene(FXMLLoader.load((getClass().getResource("/Result.fxml")))));
+               Main.page.setScene(new Scene(FXMLLoader.load((getClass().getResource("/fxml/Result.fxml")))));
            }else{
                this.sound[2].play();
-               Main.page.setScene(new Scene(FXMLLoader.load((getClass().getResource("/Result.fxml")))));
+               Main.page.setScene(new Scene(FXMLLoader.load((getClass().getResource("/fxml/Result.fxml")))));
            }
         }
     }
