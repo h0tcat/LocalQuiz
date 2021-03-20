@@ -11,7 +11,7 @@ import java.util.Random;
 public class Quiz{
 	
 	private Random rand;
-	private static boolean debugMode=true;
+	private static boolean debugMode=false;
 
 	protected static String id;
 
@@ -36,7 +36,7 @@ public class Quiz{
 		}
 		else {
 
-			this.file = new File(getClass().getResource("/data.json").toURI());
+			this.file = new File(getClass().getResource("/population.json").toURI());
 			this.root = mapper.readTree(this.file);
 		}
 		this.quizID=this.rand.nextInt(this.root.size());
@@ -48,7 +48,7 @@ public class Quiz{
 		if(debugMode)
 			this.jsonPath=String.format("/%d/quiz/commentary/answer",this.quizID);
 		else
-			this.jsonPath=String.format("/%d/quiz/commentary/answer",randQuizID);
+			this.jsonPath=String.format("/%d/commentary/answer",randQuizID);
 
 		this.answerPath=this.root.at(jsonPath).asText();
 
@@ -61,7 +61,7 @@ public class Quiz{
 		if(debugMode)
 			this.jsonPath=String.format("/%d/quiz/commentary/text",this.quizID);
 		else
-			this.jsonPath=String.format("/%d/quiz/commentary/text",randQuizID);
+			this.jsonPath=String.format("/%d/commentary/text",randQuizID);
 
 		this.answerCommentarPath=this.root.at(jsonPath).asText();
 		return this.answerCommentarPath;
