@@ -105,6 +105,8 @@ public class QuizController {
 
         Main.quiz=new Quiz();
 
+        this.quizText.wrappingWidthProperty().bind(Main.scene.widthProperty().subtract(13));
+
         ArrayList<String> quizChoices= new ArrayList<>();
         this.quizText.setText(Main.quiz.getText());
 

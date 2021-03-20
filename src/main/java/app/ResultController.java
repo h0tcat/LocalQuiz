@@ -32,6 +32,8 @@ public class ResultController {
         assert commentaryText != null : "fx:id=\"commentaryText\" was not injected: check your FXML file 'Result.fxml'.";
         assert backTitleButton != null : "fx:id=\"backTitleButton\" was not injected: check your FXML file 'Result.fxml'.";
 
+
+        this.commentaryText.wrappingWidthProperty().bind(Main.scene.widthProperty().subtract(13));
         if(Quiz.judgeResult) {//judgeResultがtrueと等しいとき、正解したことを意味する。
             this.answerResult.setText("正解!");
             this.commentaryText.setText(Main.quiz.getCommentary());

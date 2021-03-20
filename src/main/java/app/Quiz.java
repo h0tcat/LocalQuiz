@@ -15,10 +15,10 @@ public class Quiz{
 
 	protected static String id;
 
-	private static String areaCode;
+	protected static String areaCode;
 
-	private ObjectMapper mapper;
-	private JsonNode root;
+	protected static ObjectMapper mapper;
+	protected static JsonNode root;
 	private String text,jsonPath;
 
 	private File file;
