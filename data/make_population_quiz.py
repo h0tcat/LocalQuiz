@@ -14,7 +14,11 @@ class LocalData:
         self.time = int(population_data_dict['@time'][:4])
         self.population = int(population_data_dict['$'])
         rr = random.choice([[0.3, 0.6], [1.4, 1,9], [0.5, 1.5]])
-        self.population_choices = [int(random.uniform(rr[0]-0.1, rr[0]+0.1) * self.population), int(random.uniform(rr[1]-0.1, rr[1]+0.1) * self.population), self.population]
+        self.population_choices = [
+            int(random.uniform(rr[0]-0.1, rr[0]+0.1) * self.population), 
+            int(random.uniform(rr[1]-0.1, rr[1]+0.1) * self.population), 
+            self.population
+        ]
         random.shuffle(self.population_choices)
     
     def __repr__(self):
@@ -74,6 +78,8 @@ def main():
     # dump
     with open('population.json', 'w') as f:
         json.dump(quiz_datas, f, indent = 4)
+
+    pprint.pprint(quiz_datas)
 
 if __name__ == "__main__":
     main()
